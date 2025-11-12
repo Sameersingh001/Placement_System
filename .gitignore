@@ -1,0 +1,66 @@
+# General / OS
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+
+# IDEs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.user
+*.userprefs
+
+# Environment / secrets
+# .env
+# .env.*
+secrets.*
+*.pem
+*.key
+
+# Logs, temp
+logs/
+*.log
+pids/
+*.pid
+tmp/
+temp/
+.cache/
+*.seed
+
+# Node (common for both backend/frontend if using Node)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp/
+.pnp.js
+parcel-cache/
+.cache/
+
+# Build / output
+dist/
+build/
+out/
+coverage/
+.nyc_output/
+*.tgz
+
+# Frontend specific (React/Next/Vue/Angular)
+Frontend/node_modules/
+Frontend/dist/
+Frontend/build/
+Frontend/.next/
+Frontend/.nuxt/
+Frontend/.cache/
+Frontend/.parcel-cache/
+
+# Backend specific
+Backend/node_modules/
+Backend/dist/
+Backend/build/
+
+
