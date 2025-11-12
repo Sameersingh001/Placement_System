@@ -12,7 +12,6 @@ const internSchema = new mongoose.Schema({
   course: { type: String, required: true },
   yearOfStudy: { type: Number, required: true },
   department: { type: String },
-  cgpa: { type: Number, min: 0, max: 10 },
 
   // 💼 Professional Info
   skills: [{ type: String, required: true }],
@@ -21,7 +20,8 @@ const internSchema = new mongoose.Schema({
   githubUrl: { type: String },
 
   // 🧩 Internship Details
-  appliedFor: { type: String }, // e.g., "Web Development"
+  appliedFor: [{ type: String }], // e.g., "Web Development"
+
   internshipStatus: {
     type: String,
     enum: ["pending", "in_progress", "completed", "hired"],
@@ -32,6 +32,7 @@ const internSchema = new mongoose.Schema({
 
   // ⚙️ Misc
   isActive: { type: Boolean, default: true },
+  
 }, { timestamps: true });
 
 export default mongoose.model("Intern", internSchema);
