@@ -47,7 +47,6 @@ const RegisterPage = () => {
     // Form state
     const [formData, setFormData] = useState({
         // 👤 Basic Details
-        uniqueId: "",
         name: "",
         email: "",
         phone: "",
@@ -156,7 +155,7 @@ const RegisterPage = () => {
     const validateForm = () => {
         // Required fields validation
         const requiredFields = [
-            'uniqueId', 'name', 'email', 'phone', 'password',
+            'name', 'email', 'phone', 'password',
             'college', 'course', 'yearOfStudy'
         ];
 
@@ -280,22 +279,6 @@ const RegisterPage = () => {
                             </h2>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div>
-                                    <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
-                                        <User className="w-4 h-4 mr-2 text-blue-500" />
-                                        Unique ID *
-                                    </label>
-                                    <input
-                                        type="text"
-                                        placeholder="Enter your Graphura ID GRAPHURA/XX/XX/ZZZ"
-                                        value={formData.uniqueId}
-                                        onChange={(e) => handleInputChange("uniqueId", e.target.value)}
-                                        className="w-full p-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200"
-                                        required
-                                    />
-                                    <span className="text-xs text-green-500 block mt-1 ml-2"># Should be in Capital Letter - Format: GRAPHURA/XX/XX/ZZZ </span>
-
-                                </div>
 
                                 <div>
                                     <label className="flex items-center text-sm font-medium text-gray-700 mb-2">

@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 const internSchema = new mongoose.Schema({
   // 👤 Basic Details
 
-  uniqueId: { type: String, required: true }, // e.g., university roll no
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   phone: { type: String, required: true },
