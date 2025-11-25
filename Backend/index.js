@@ -7,6 +7,8 @@ import cors from 'cors';
 import connectDB from './config/db.js';
 dotenv.config();
 
+import internRoutes from './route/intern.route.js';
+
 app.use(cors());
 app.use(express.json());
 
@@ -15,6 +17,9 @@ app.get('/', (req, res) => {
 });
 
 connectDB();
+
+//Routes
+app.use('/api', internRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
