@@ -11,6 +11,7 @@ import connectDB from './config/db.js';
 
 import authRoutes from './routers/authRouters.js';
 import internRoutes from './routers/InternRoutes.js'
+import MentorRoutes from './model/RegisterDB/mentorSchema.js';
 
 
 
@@ -25,6 +26,7 @@ app.use(cookieParser());
 
 app.use('/api', authRoutes);
 app.use('/api', internRoutes);
+app.use('/api', MentorRoutes);
 
 
 
