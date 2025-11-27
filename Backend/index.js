@@ -14,7 +14,7 @@ import internRoutes from './routers/InternRoutes.js';
 // import MentorRoutes from './model/RegisterDB/mentorSchema.js';
 import MentorRoutes from './routers/MentorRoutes.js';
 
-import paymentRoutes from './route/PaymentRoute.js';
+import paymentRoutes from './routers/PaymentRoutes.js';
 
 
 

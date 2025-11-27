@@ -8,6 +8,20 @@ const Payments = () => {
   const [currentPlan, setCurrentPlan] = useState({});
   const [loading, setLoading] = useState(false);
 
+
+
+//helper to load Razorpay script
+  const loadScript = (src) => {
+  return new Promise((resolve) => {
+    const script = document.createElement("script");
+    script.src = src;
+    script.onload = () => resolve(true);
+    script.onerror = () => resolve(false);
+    document.body.appendChild(script);
+  });
+};
+
+
   // Plan configurations - ALL PAID PLANS ONLY
 const plans = [
   {
@@ -88,35 +102,87 @@ const plans = [
   };
 
   const handlePurchase = async (planId) => {
-    try {
-      setLoading(true);
-      const plan = plans.find(p => p.id === planId);
-      
-      const response = await axios.post('/api/payments/purchase', { 
-        planId: plan.id,
-        planCategory: plan.category,
-        amount: plan.price,
-        // In real implementation, you'd get internId from auth context
-        // internId: user.id 
-      });
-      
-      if (response.data.success) {
-        // Redirect to payment gateway or show success message
-        if (response.data.paymentUrl) {
-          window.location.href = response.data.paymentUrl;
-        } else {
-          alert(`Successfully purchased ${plan.name} plan! ${plan.credits} credits added.`);
-          fetchCurrentPlan();
-          fetchPaymentHistory();
-        }
-      }
-    } catch (error) {
-      console.error('Purchase error:', error);
-      alert(`Error purchasing plan: ${error.response?.data?.error || error.message}`);
-    } finally {
-      setLoading(false);
+  try {
+    setLoading(true);
+    const plan = plans.find((p) => p.id === planId);
+    if (!plan) {
+      alert("Invalid plan selected");
+      return;
     }
-  };
+
+    // 1️⃣ Load Razorpay script
+    const loaded = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
+    if (!loaded) {
+      alert("Failed to load Razorpay SDK. Check your internet connection.");
+      return;
+    }
+
+    // 2️⃣ Create order on backend
+    const { data } = await axios.post("/api/payments/purchase", {
+      planId: plan.id,
+      planCategory: plan.category,
+      amount: plan.price,
+      credits: plan.credits,
+    });
+
+    if (!data.success) {
+      alert(data.message || "Failed to create payment order");
+      return;
+    }
+
+    // 3️⃣ Open Razorpay checkout
+    const options = {
+      key: data.key, // RAZORPAY_KEY_ID from backend
+      amount: data.amount, // in paise
+      currency: data.currency,
+      name: "Intern Learning & Placement",
+      description: `${plan.name} Plan Purchase`,
+      order_id: data.orderId,
+      handler: async function (response) {
+        try {
+          // 4️⃣ Verify payment on backend
+          const verifyRes = await axios.post("/api/payments/verify", {
+            razorpay_order_id: response.razorpay_order_id,
+            razorpay_payment_id: response.razorpay_payment_id,
+            razorpay_signature: response.razorpay_signature,
+            planId: plan.id,
+            planCategory: plan.category,
+            amount: plan.price,
+            credits: plan.credits,
+          });
+
+          if (verifyRes.data.success) {
+            alert(`Payment successful! ${plan.credits} credits added to your account.`);
+            fetchCurrentPlan();
+            fetchPaymentHistory();
+          } else {
+            alert(verifyRes.data.message || "Payment verification failed.");
+          }
+        } catch (err) {
+          console.error("Error verifying payment:", err);
+          alert("Error verifying payment. Please contact support.");
+        }
+      },
+      prefill: {
+        
+        name: currentPlan?.internName || "",
+        email: currentPlan?.email || "",
+      },
+      theme: {
+        color: "#2563eb",
+      },
+    };
+
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
+  } catch (error) {
+    console.error("Purchase error:", error);
+    alert(`Error purchasing plan: ${error.response?.data?.message || error.message}`);
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   const handleRetryPayment = async (paymentId) => {
     try {

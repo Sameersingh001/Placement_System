@@ -47,20 +47,21 @@ hiringTeamFeedback: [
 
   favorites: [{ type: mongoose.Schema.Types.ObjectId, ref: "Job" }],
 
-  // 🌟 Free Job Limit & Payments
-  freeJobLimit: { type: Number, default: 2 },         // free jobs allowed
-  jobsAppliedCount: { type: Number, default: 0 },     // how many jobs intern applied
-  isPaid: { type: Boolean, default: false },          // upgraded plan?
-  planType: { type: String, default: "FREE" },        // FREE / BASIC / PREMIUM
-  planExpiry: { type: Date },                         // for subscriptions
+    // 🌟 Free Job Limit & Payments
+  freeJobLimit: { type: Number, default: 2 },
+  jobsAppliedCount: { type: Number, default: 0 },
+
+  jobCredits: { type: Number, default: 0 },
+  planCategory: { type: String, default: "NONE" },
 
   paymentHistory: [
     {
       amount: Number,
       currency: { type: String, default: "INR" },
       date: { type: Date, default: Date.now },
-      paymentId: String,           // Razorpay/Stripe ID
-      status: String               // success / failed
+      paymentId: String,
+      status: String,
+      planPurchased: String,
     }
   ],
 
