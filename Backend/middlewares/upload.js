@@ -14,11 +14,11 @@ const storage = new CloudinaryStorage({
     if (mime.startsWith("image/")) {
       folder = "images";
       resource_type = "image";
-    } 
+    }
     else if (mime === "application/pdf") {
       folder = "study-materials";
       resource_type = "raw";
-    } 
+    }
     else if (mime.startsWith("video/")) {
       folder = "videos";
       resource_type = "video";
@@ -40,19 +40,18 @@ const storage = new CloudinaryStorage({
 });
 
 const fileFilter = (req, file, cb) => {
-  const allowed = [
-    "application/pdf",
-    "image/jpeg",
-    "image/png",
-    "image/jpg",
-    "video/mp4",
-    "video/mkv",
-    "video/webm",
-  ];
+  const mime = file.mimetype;
 
-  allowed.includes(file.mimetype)
-    ? cb(null, true)
-    : cb(new Error("Only image, PDF & video files allowed"), false);
+  // ✅ allow all images, videos, and PDFs
+  if (
+    mime.startsWith("image/") ||
+    mime.startsWith("video/") ||
+    mime === "application/pdf"
+  ) {
+    cb(null, true);
+  } else {
+    cb(new Error("Only image, PDF & video files allowed"), false);
+  }
 };
 
 const upload = multer({

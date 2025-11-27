@@ -353,16 +353,6 @@ const MentorStudyMaterials = () => {
                 <p className="text-gray-600 mb-4 leading-relaxed">
                   {material.description}
                 </p>
-
-                <div className="flex justify-between items-center mt-auto">
-                  <span className="text-sm text-gray-500">
-                    {material.fileSize || 'N/A'}
-                  </span>
-                  <span className="text-sm text-gray-500">
-                    {material.downloads || 0} downloads
-                  </span>
-                </div>
-
                 <p className="text-sm text-gray-500 mt-3">
                   Uploaded: {new Date(material.uploadDate || material.createdAt).toLocaleDateString()}
                 </p>
@@ -490,8 +480,8 @@ const MentorStudyMaterials = () => {
       {/* PDF Preview Dialog */}
       {/* PDF Preview Dialog */}
       {previewDialog && previewMaterial && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] flex flex-col">
+        <div className="fixed inset-0 backdrop-blur-sm bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-2xl w-full max-w-4xl h-full flex flex-col">
             {/* Header */}
             <div className="flex justify-between items-center p-4 border-b">
               <h3 className="text-xl font-bold text-gray-900">
