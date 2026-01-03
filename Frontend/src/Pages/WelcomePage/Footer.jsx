@@ -13,7 +13,7 @@ const Footer = () => {
         <footer className="w-full bg-[#09435f] text-white pt-16 pb-10 relative overflow-y-auto pb-safe">
 
 
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-25  relative z-10">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-25  relative z-10">
 
        
         <div>
@@ -27,7 +27,7 @@ const Footer = () => {
             Early take-off offers valuable learning prospects in high-end growth
             sectors.
           </p>
-
+          
           {/* Contact buttons */}
           <div className="mt-6 space-y-3">
             <div className="bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm flex items-center gap-3">
@@ -40,7 +40,19 @@ const Footer = () => {
               <span className="font-semibold ml-auto">official@graphura.in</span>
             </div>
           </div>
+          
         </div>
+
+                  {/* Quick Links */}
+          <div className="mt-6">
+            <h4 className="text-gray-200 font-semibold mb-2">Quick Links</h4>
+            <ul className="space-y-2">
+              <li><a href="/" className="text-gray-300 hover:text-white">Home</a></li>
+              <li><a href="/courses" className="text-gray-300 hover:text-white">Courses</a></li>
+              <li><a href="/FAQ" className="text-gray-300 hover:text-white">FAQ</a></li>
+              <li><a href="/intern-login" className="text-gray-300 hover:text-white">Candidate Login</a></li>
+            </ul>
+          </div>
 
   
      
@@ -52,6 +64,8 @@ const Footer = () => {
             sectors.
           </p>
 
+          
+
           {/* Social Icons */}
           <div className="flex gap-4 text-xl text-white mt-5 ml-3">
             <a href="https://www.linkedin.com/company/graphura-india-private-limited/"><FaLinkedin /></a>
@@ -59,6 +73,10 @@ const Footer = () => {
             <a href="https://www.facebook.com/Graphura.in/"><FaFacebook /></a>
             <a href="https://x.com/Graphura"><FaTwitter /></a>
           </div>
+
+
+
+
         </div>
       </div>
 

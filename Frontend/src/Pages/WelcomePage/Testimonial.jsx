@@ -88,6 +88,8 @@ export default function Testimonials() {
       >
         {testimonials.map((t, index) => (
           <SwiperSlide key={index}>
+            <div className="pb-10">
+
             <div className="bg-white/60 backdrop-blur-md border border-white/40 shadow-lg rounded-2xl p-5 min-h-[200px] flex flex-col justify-between">
 
               
@@ -106,14 +108,14 @@ export default function Testimonials() {
                   src={t.img}
                   alt={t.name}
                   className="w-10 h-10 rounded-full object-cover"
-                />
+                  />
                 <div>
                   <h4 className="text-sm font-semibold text-gray-900">{t.name}</h4>
                   <p className="text-xs text-gray-600">{t.role}</p>
                 </div>
               </div>
-
             </div>
+        </div>
           </SwiperSlide>
         ))}
       </Swiper>

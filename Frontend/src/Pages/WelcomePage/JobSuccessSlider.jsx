@@ -7,19 +7,19 @@ import "swiper/css/pagination";
 
 const successSlides = [
   {
-    img: "/Boy.png",
+    img: "/Boy2.png",
     name: "Kabhi Bhatt",
     text: "I took the course and applied from Graphura in Lenskart and I cracked it, Woohooo....",
     companyLogo: "/logos/lenskart.png",
   },
   {
-    img: "/Boy.png",
+    img: "/Boy3.png",
     name: "Aarav Sharma",
     text: "The placement preparation was amazing. I cracked interviews confidently!",
     companyLogo: "/logos/geeks.png",
   },
   {
-    img: "/Boy.png",
+    img: "/girl3.png",
     name: "Riya Verma",
     text: "Graphura boosted my confidence and skill-set. I got the job!",
     companyLogo: "/logos/bajaj.png",
@@ -59,7 +59,7 @@ export default function JobSuccessSlider() {
                   className="
       hidden md:block
       absolute bottom-0 left-6
-      md:w-[230px] lg:w-[260px]
+      md:w-[200px] lg:w-[200px]
       object-contain
       drop-shadow-2xl
     "

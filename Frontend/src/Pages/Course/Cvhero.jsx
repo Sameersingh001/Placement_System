@@ -10,7 +10,7 @@ const Hero = () => {
     >
 
       {/* LEFT CONTENT */}
-      <div className="text-white max-w-xl md:pt-0 md:text-left text-center pt-70 md:ml-[50px]">
+      <div className="text-gray-900 max-w-xl md:pt-0 md:text-left text-center pt-70 md:ml-[50px]">
         <h1 className="text-5xl md:text-7xl font-extrabold leading-tight">
           CV MASTERY <br /> COURSE
         </h1>
@@ -20,17 +20,29 @@ const Hero = () => {
           interview-winning document.
         </p>
 
-        <button className="mt-6 bg-white text-gray-900 font-semibold px-10 py-5 rounded-md shadow hover:bg-gray-100">
+        <a href="/intern-login">  <button className="
+    mt-6 
+    text-gray-900 
+    bg-transparent 
+    border border-white 
+    font-bold text-2xl 
+    px-10 py-3 
+    rounded-md
+    shadow-2xl
+    hover:bg-white 
+    hover:text-blue-900 
+    transition duration-300
+  ">
           Enroll Now
-        </button>
+        </button></a>
       </div>
 
       {/* RIGHT IMAGE */}
-      <div className="md:mr-[-150px] md:mt-0 flex mr-0 justify-center w-full md:w-full hidden lg:block">
+      <div className="md:mr-[-150px] md:mt-40 flex mr-0 justify-center w-full md:w-full hidden lg:block">
         <img
           src="/courseshero.png"
           alt="CV Illustration"
-          className="w-[330px] md:w-[850px]"
+          className="w-[430px] md:w-[1024px]"
         />
       </div>
     </div>

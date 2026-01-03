@@ -583,7 +583,7 @@ const Payments = () => {
               >
                 {/* Tag Label */}
                 {plan.tag && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                  <div className="absolute -top-3 left-1/4 transform -translate-x-1/2">
                     <span className={`inline-flex items-center px-4 py-1.5 rounded-full text-xs font-bold shadow ${plan.popular 
                       ? 'bg-gradient-to-r from-[#FFD700] to-[#FFED4E] text-[#0A2E40]' 
                       : 'bg-gradient-to-r from-[#0E5C7E] to-[#4FB0DA] text-white'
@@ -683,43 +683,73 @@ const Payments = () => {
           })}
         </div>
 
-        {/* Important Notice */}
-        <div className="p-5 bg-gradient-to-r from-[#EAF6FC] to-[#F0F9FF] border border-[#7EC9E8]/30 rounded-xl">
-          <div className="flex items-start">
-            <div className="flex-shrink-0">
-              <span className="text-2xl">🎯</span>
-            </div>
-            <div className="ml-4">
-              <h3 className="text-lg font-bold text-[#0A2E40] mb-2">Limited Time Special Offer!</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm text-[#0A2E40]">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-[#0E5C7E] rounded-full"></div>
-                  <span>All prices shown include special discounts</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-[#0E5C7E] rounded-full"></div>
-                  <span>Original prices crossed out show regular rates</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-[#0E5C7E] rounded-full"></div>
-                  <span>Discount percentages displayed for each plan</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-[#0E5C7E] rounded-full"></div>
-                  <span>Job credits accumulate across all packages</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-[#0E5C7E] rounded-full"></div>
-                  <span>Latest purchase becomes your current package</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-[#0E5C7E] rounded-full"></div>
-                  <span>Courses include lifetime access</span>
-                </div>
-              </div>
-            </div>
-          </div>
+{/* Important Instructions */}
+<div className="p-5 bg-gradient-to-r from-[#EAF6FC] to-[#F0F9FF] border border-[#7EC9E8]/30 rounded-xl">
+  <div className="flex items-start">
+    <div className="flex-shrink-0">
+      <span className="text-2xl"></span>
+    </div>
+
+    <div className="ml-4">
+      <h3 className="text-lg font-bold text-[#0A2E40] mb-3">
+        Important Instructions – Please Read Carefully
+      </h3>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm text-[#0A2E40]">
+
+        {/* Package Info */}
+        <div className="flex gap-2">
+          <div className="w-2 h-2 mt-2 bg-[#0E5C7E] rounded-full" />
+          <span>
+            Graphura offers <strong>3 main packages</strong>: CV Building, Interview Preparation, and Job Packages.
+          </span>
         </div>
+
+        {/* Silver Package */}
+        <div className="flex gap-2">
+          <div className="w-2 h-2 mt-2 bg-[#0E5C7E] rounded-full" />
+          <span>
+            The <strong>₹1 Silver Package</strong> can be purchased <strong>only once</strong> per user.
+          </span>
+        </div>
+
+        {/* Package Replacement Rule */}
+        <div className="flex gap-2">
+          <div className="w-2 h-2 mt-2 bg-[#0E5C7E] rounded-full" />
+          <span>
+            If you purchase a new package, the <strong>previous package becomes inactive</strong> and cannot be reused.
+          </span>
+        </div>
+
+        {/* Recommendation */}
+        <div className="flex gap-2">
+          <div className="w-2 h-2 mt-2 bg-[#0E5C7E] rounded-full" />
+          <span>
+            We strongly recommend <strong>completing your current package</strong> before purchasing a new one.
+          </span>
+        </div>
+
+        {/* Course Access Rule */}
+        <div className="flex gap-2">
+          <div className="w-2 h-2 mt-2 bg-[#0E5C7E] rounded-full" />
+          <span>
+            Course access depends on your purchase. Buying only the <strong>CV course</strong> gives access to CV content only.
+          </span>
+        </div>
+
+        {/* Combo Course */}
+        <div className="flex gap-2">
+          <div className="w-2 h-2 mt-2 bg-[#0E5C7E] rounded-full" />
+          <span>
+            Purchasing the <strong>Combo Course</strong> unlocks access to <strong>both CV Building and Interview Preparation</strong>.
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
       </div>
     );
   };

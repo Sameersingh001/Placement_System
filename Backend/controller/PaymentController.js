@@ -30,6 +30,25 @@ export const purchasePlan = async (req, res) => {
       });
     }
 
+       if (purchaseCategory === "JOB_PACKAGE" && packageType === "Silver") {
+      const intern = await Intern.findById(internId).select("purchases");
+
+      const alreadyPurchasedSilver = intern.purchases.some(
+        (p) =>
+          p.purchaseCategory === "JOB_PACKAGE" &&
+          p.jobPackageDetails?.packageType === "Silver" &&
+          p.paymentStatus === "SUCCESS"
+      );
+
+      if (alreadyPurchasedSilver) {
+        return res.status(403).json({
+          success: false,
+          message: "Silver package can be purchased only once."
+        });
+      }
+    }
+
+
     // Amount must be in paise
     const options = {
       amount: amount,

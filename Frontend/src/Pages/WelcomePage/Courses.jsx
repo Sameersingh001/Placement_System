@@ -16,12 +16,13 @@ const courses = [
     desc: "Understand the role, present yourself confidently, strong communication.",
     reviewed: "12+ students",
   },
-  // {
-  //   title: "Content Creator",
-  //   rating: "4.6",
-  //   desc: "Focus on niche, quality, consistency, and audience engagement.",
-  //   reviewed: "15+ students",
-  // },
+  {
+    image: "/Interview1.png",
+    title: "Combo Package",
+    rating: "4.6",
+    desc: "Comprehensive course covering CV building and interview preparation.",
+    reviewed: "15+ students",
+  },
  
   // {
   //   title: "Group Discussion",
@@ -80,9 +81,11 @@ function Coursess() {
               </p>
 
               {/* Enroll button */}
+              <a href="/intern-login">
               <button className="inline-flex items-center justify-center px-4 py-2 text-xs md:text-sm font-semibold text-sky-700 bg-white rounded-full shadow-sm hover:bg-sky-50 transition-colors">
                 Enroll Now
               </button>
+              </a>
 
               {/* Reviewed text */}
               <p className="mt-3 text-[11px] text-slate-600">

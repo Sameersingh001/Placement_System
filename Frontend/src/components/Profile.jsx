@@ -63,13 +63,10 @@ const Profile = () => {
 
   // Year of study options with icons
   const yearOptions = [
-    { value: 1, label: '1st Year', icon: '📚' },
-    { value: 2, label: '2nd Year', icon: '🎓' },
-    { value: 3, label: '3rd Year', icon: '🏆' },
-    { value: 4, label: '4th Year', icon: '🎯' },
-    { value: "Post Diploma", label: 'Post Diploma', icon: '📜' },
-    { value: "Higher Diploma", label: 'Higher Diploma (HD)', icon: '🏛️' },
-    { value: "Graduate", label: 'Graduated', icon: '🎉' }
+    { value: 1, label: '1st Year'},
+    { value: 2, label: '2nd Year'},
+    { value: 3, label: '3rd Year'},
+    { value: 4, label: '4th Year' },
   ];
 
   // Domain options

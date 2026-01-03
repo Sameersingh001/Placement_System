@@ -15,14 +15,19 @@ import Payments from './components/Payments';
 import HiringTeamDashboard from './HRDash';
 import Course from './Pages/Course/course';
 import AdminDashboard from './AdminDash';
-
+import FAQPage from './Pages/FAQ/Faq';
+import ScrollToTopSelective from './Pages/ScrollToTop';
 
 function App() {
   return (
     <Router>
+        <ScrollToTopSelective />
       <Routes>
+
         <Route path="/" element={<WelcomePage/>} />
         <Route path='/courses' element={<Course />}/>
+        <Route path='/FAQ' element={<FAQPage />}/>
+
          <Route path="/intern-login" element={<LoginPage/>} />
          <Route path="/register-intern" element={<RegisterPage/>} />
 

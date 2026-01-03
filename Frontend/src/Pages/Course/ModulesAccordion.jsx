@@ -4,50 +4,96 @@ import React, { useState } from "react";
 const MODULES = [
   {
     id: 1,
-    title: "CV Fundamentals & Recruiter Mindset",
+    title: "Crack the Interview Code: How Companies Really Select Candidates",
     meta: "Module 1 • Around 1 hour to complete",
     summary:
-      "CV basics, recruiter mindset, how to tailor your CV to JD and stand out. Learn what recruiters look for and how to present your story.",
+      "Shift from a job seeker mindset to a value-delivery professional. Learn how companies screen applications, score interviews, and decide offers.",
     details:
-      "This module covers the foundational CV structure, headline craft, common recruiter signals, and short exercises to practice tailoring to job descriptions.",
+      "This module breaks down real hiring processes, recruiter decision logic, interview scorecards, and how candidates are evaluated across stages so you enter interviews with clarity and confidence.",
   },
   {
     id: 2,
-    title: "Building a High-Impact CV Structure & Personal Branding",
+    title: "Nail the HR Call: First 60 Seconds to Win",
     meta: "Module 2 • Around 1 hour to complete",
     summary:
-      "Structure, headlines, branding and storytelling for CVs — learn to write impact-driven summaries and role-focused achievements.",
+      "Master the first HR screening call using structured frameworks like SIV and EIM to stand out immediately.",
     details:
-      "You will learn how to write compelling profile summary, skills sections, and arrange experience to highlight results rather than tasks.",
+      "Learn how HR evaluates candidates in the first call, what signals recruiters listen for, and how to structure achievements and skills to create a strong first impression.",
   },
   {
     id: 3,
-    title: "ATS Optimization, Keywords & Job-Description Tailoring",
+    title: "Crack Behavioral Interviews: STAR, CARL & SOAR Made Easy",
     meta: "Module 3 • Around 1 hour to complete",
     summary:
-      "JD decoding, keyword bank creation, ATS optimization and testing so your resume passes filters and reaches recruiters.",
+      "Learn proven frameworks to answer behavioral and situational interview questions with clarity and impact.",
     details:
-      "Practice building a keyword map from job descriptions and test optimizations to maximize ATS score without keyword stuffing.",
+      "This module teaches STAR, CARL, and SOAR frameworks to showcase leadership, decision-making, problem-solving, and teamwork through structured, value-driven responses.",
   },
   {
     id: 4,
-    title: "Live Domain-Specific CV Customization Workshop",
+    title: "From JD to Answer: Technical & Analytical Interview Mastery",
     meta: "Module 4 • Around 1 hour to complete",
     summary:
-      "Hands-on live sessions with domain-specific examples and edits — IT, Finance, Design, MBA, Core Engineering, etc.",
+      "Decode job descriptions and confidently present your technical, analytical, and project-based expertise.",
     details:
-      "Live editing sessions where we apply module learnings to real CVs from attendees and provide personalized feedback.",
+      "Learn how to analyze job descriptions, identify core skills, align your projects, tools, and experience, and present your technical strengths clearly in interviews.",
   },
   {
     id: 5,
-    title: "Final Review + LinkedIn Optimization + Application Strategy",
+    title: "Interview Strategy & Salary Secrets: Crack Interviews and Maximize Your Salary",
     meta: "Module 5 • Around 1 hour to complete",
     summary:
-      "Final review, LinkedIn polishing and application scripts & strategy to increase interview callbacks.",
+      "Negotiate salary confidently using proven strategies without sounding desperate.",
     details:
-      "We finish with final reviews, LinkedIn headline & summary tweaks, and outreach/application scripts to start sending targeted applications.",
+      "Understand negotiation frameworks like BATNA and Anchoring, learn how to demonstrate your value, and secure compensation aligned with your true market worth.",
+  },
+  {
+    id: 6,
+    title: "Unlock Role Secrets: Prepare Like a Top Candidate Every Time",
+    meta: "Module 6 • Around 1 hour to complete",
+    summary:
+      "Tailor your interview approach based on company type—from startups to MNCs.",
+    details:
+      "Learn how different organizations evaluate candidates, what they prioritize, and how to adapt your answers strategically to match their expectations.",
+  },
+  {
+    id: 7,
+    title: "Mock Interview Mastery: Turn Practice Into Performance",
+    meta: "Module 7 • Around 1 hour to complete",
+    summary:
+      "Experience realistic HR interviews and build confidence through structured practice.",
+    details:
+      "Practice behavioral interviews with measurable impact, refine answer structure, and develop the confidence and poise needed to handle real interview pressure.",
+  },
+  {
+    id: 8,
+    title: "Think, Solve, Impress: Live Technical Simulation & Analysis",
+    meta: "Module 8 • Around 1 hour to complete",
+    summary:
+      "Showcase structured thinking, prioritization, and solution-driven reasoning in live simulations.",
+    details:
+      "Participate in technical and analytical simulations, receive detailed performance analysis, and get personalized improvement strategies to outperform peers.",
+  },
+  {
+    id: 9,
+    title: "Land Interviews Faster: Resume, LinkedIn & Portfolio Mastery",
+    meta: "Module 9 • Around 1 hour to complete",
+    summary:
+      "Optimize your resume, LinkedIn profile, and portfolio for maximum recruiter impact.",
+    details:
+      "Learn ATS-friendly formatting, keyword optimization, proof-backed achievements, and positioning strategies to increase interview callbacks.",
+  },
+  {
+    id: 10,
+    title: "The Ultimate Mock Interview: Test, Score & Transform",
+    meta: "Module 10 • Around 1 hour to complete",
+    summary:
+      "Integrate everything you’ve learned through full-length mock interviews and scoring.",
+    details:
+      "Complete comprehensive mock interviews, receive a structured performance scorecard, and get a personalized roadmap to confidently navigate your career journey.",
   },
 ];
+
 
 export default function ModulesAccordion() {
   const [openId, setOpenId] = useState(0);
@@ -60,7 +106,7 @@ export default function ModulesAccordion() {
   }}
     >
       <h3 className="text-lg md:text-xl font-bold text-black mb-3">
-        There are 5 modules :
+        There are 10 modules :
       </h3>
 
       <div className="space-y-3 text-black bg-transparent shadow-[0_24px_55px_rgba(15,23,42,0.35)] p-10">
@@ -124,13 +170,6 @@ function ModuleItem({ module, isOpen, onToggle }) {
         }`}
       >
         <div className="mt-2 text-sm text-black/90">{module.details}</div>
-
-        <div className="mt-3 flex items-center justify-between">
-          <a href="#!" className="text-sm text-black underline">
-            Show more details →
-          </a>
-          <div className="text-xs text-black/80">Estimated: ~1 hour</div>
-        </div>
       </div>
     </div>
   );

@@ -10,44 +10,36 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Courses", path: "/courses" },
+    { name: "FAQ", path: "/FAQ" },
   ];
 
   return (
     <nav
       className="
-    fixed top-0 left-0 z-50
-    w-full md:w-[85%]
-    h-12 md:h-16
-    bg-white/80 backdrop-blur-xl
-    border border-white/30
-    shadow-[0_8px_30px_rgba(0,0,0,0.1)]
-    md:rounded-full
-    px-4 sm:px-6 md:px-8
-    flex items-center justify-between
-    mx-auto
-    md:left-1/2 md:-translate-x-1/2
-    mt-0 md:mt-6
-  "
+        fixed top-0 left-0 z-50
+        w-full md:w-[85%]
+        h-12 md:h-16
+        bg-white/80 backdrop-blur-xl
+        border border-white/30
+        shadow-[0_8px_30px_rgba(0,0,0,0.1)]
+        md:rounded-full
+        px-4 sm:px-6 md:px-8
+        flex items-center justify-between
+        mx-auto
+        md:left-1/2 md:-translate-x-1/2
+        mt-0 md:mt-6
+      "
     >
-
-
+      {/* LOGO */}
       <Link to="/" className="flex items-center gap-2">
         <img
           src="/GraphuraLogo.jpg"
           alt="Graphura logo"
-          className="
-      h-10 
-      sm:h-11 
-      md:h-12 
-      lg:h-13
-      w-auto
-      object-contain
-    "
+          className="h-10 sm:h-11 md:h-12 w-auto object-contain"
         />
       </Link>
 
-
-
+      {/* DESKTOP NAV */}
       <div className="hidden md:flex items-center space-x-8">
         {navLinks.map((link) => (
           <NavLink
@@ -55,16 +47,24 @@ const Navbar = () => {
             to={link.path}
             className={({ isActive }) =>
               `font-semibold relative transition-all
-               ${isActive ? "text-indigo-600" : "text-gray-800 hover:text-indigo-600"}
-               after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px]
-               ${isActive ? "after:bg-indigo-600" : "after:bg-transparent hover:after:bg-indigo-600"}`
+              ${
+                isActive
+                  ? "text-indigo-600"
+                  : "text-gray-800 hover:text-indigo-600"
+              }
+              after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px]
+              ${
+                isActive
+                  ? "after:bg-indigo-600"
+                  : "after:bg-transparent hover:after:bg-indigo-600"
+              }`
             }
           >
             {link.name}
           </NavLink>
         ))}
 
-
+        {/* DESKTOP LOGIN DROPDOWN */}
         <div className="relative">
           <button
             className="bg-sky-600 text-white px-5 py-2 rounded-lg shadow-sm font-medium 
@@ -74,7 +74,9 @@ const Navbar = () => {
             Login
             <ChevronDown
               size={16}
-              className={`transition-transform ${showLoginOptions ? "rotate-180" : ""}`}
+              className={`transition-transform ${
+                showLoginOptions ? "rotate-180" : ""
+              }`}
             />
           </button>
 
@@ -85,7 +87,9 @@ const Navbar = () => {
                 className="block px-4 py-3 hover:bg-blue-50 border-b border-blue-50"
               >
                 <div className="font-medium text-gray-800">Portal Login</div>
-                <div className="text-xs text-gray-500">For Placement candidates</div>
+                <div className="text-xs text-gray-500">
+                  For placement candidates
+                </div>
               </Link>
 
               <Link
@@ -93,7 +97,9 @@ const Navbar = () => {
                 className="block px-4 py-3 hover:bg-blue-50 border-b border-blue-50"
               >
                 <div className="font-medium text-gray-800">Mentor Login</div>
-                <div className="text-xs text-gray-500">For mentors & reviewers</div>
+                <div className="text-xs text-gray-500">
+                  For mentors & reviewers
+                </div>
               </Link>
 
               <Link
@@ -101,7 +107,9 @@ const Navbar = () => {
                 className="block px-4 py-3 hover:bg-blue-50 border-b border-blue-50"
               >
                 <div className="font-medium text-gray-800">HR Team</div>
-                <div className="text-xs text-gray-500">For HR & hiring</div>
+                <div className="text-xs text-gray-500">
+                  For HR & hiring
+                </div>
               </Link>
 
               <Link
@@ -109,53 +117,65 @@ const Navbar = () => {
                 className="block px-4 py-3 hover:bg-blue-50"
               >
                 <div className="font-medium text-gray-800">Admin Login</div>
-                <div className="text-xs text-gray-500">For system admins</div>
+                <div className="text-xs text-gray-500">
+                  For system admins
+                </div>
               </Link>
             </div>
           )}
         </div>
       </div>
 
-
+      {/* MOBILE MENU ICON */}
       <div className="md:hidden">
         <button onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
-
+      {/* MOBILE MENU */}
       {isOpen && (
-        <div className="
-          absolute top-[70px] left-1/2 -translate-x-1/2
-          w-[90%]
-          bg-white/90 backdrop-blur-xl
-          shadow-lg rounded-2xl
-          py-6 flex flex-col items-center
-          space-y-4 text-center z-40
-        ">
+        <div
+          className="
+            absolute top-[70px] left-1/2 -translate-x-1/2
+            w-[90%]
+            bg-white/90 backdrop-blur-xl
+            shadow-lg rounded-2xl
+            py-6 flex flex-col items-center
+            space-y-4 text-center z-40
+          "
+        >
           {navLinks.map((link) => (
             <NavLink
               key={link.name}
               to={link.path}
               onClick={() => setIsOpen(false)}
               className={({ isActive }) =>
-                `font-semibold text-lg 
-                 ${isActive ? "text-indigo-600 underline" : "text-gray-700 hover:text-indigo-600"}`
+                `font-semibold text-lg
+                ${
+                  isActive
+                    ? "text-indigo-600 underline"
+                    : "text-gray-700 hover:text-indigo-600"
+                }`
               }
             >
               {link.name}
             </NavLink>
           ))}
 
-
+          {/* MOBILE → ONLY CANDIDATE LOGIN */}
           <button
             onClick={() => {
               setIsOpen(false);
               navigate("/intern-login");
             }}
-            className="bg-indigo-600 text-white px-6 py-2 rounded-full"
+            className="
+              bg-indigo-600 text-white
+              px-8 py-2 rounded-full
+              font-semibold shadow-md
+            "
           >
-            Login
+            Candidate Login
           </button>
         </div>
       )}

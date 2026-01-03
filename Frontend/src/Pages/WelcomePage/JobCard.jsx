@@ -26,13 +26,13 @@ export default function JobCard({ job }) {
 
    
       <div className="mt-8">
-        <h3 className="text-lg font-semibold text-slate-900/90 w-[80%]">{job.title}</h3>
-        <p className="text-sm text-slate-700/80 mt-2">{job.company}</p>
+        <h3 className="text-lg font-semibold text-[#09435F] w-[80%]">{job.title}</h3>
+        <p className="text-sm text-white mt-2">{job.company}</p>
 
         <hr className="my-4 border-white/10" />
 
-        <p className="text-sm text-slate-800"><span className="font-semibold">📍 </span>{job.location}</p>
-        <p className="mt-2 text-sm text-slate-800"><span className="font-semibold">💰 </span>{job.salary}</p>
+        <p className="text-sm text-white"><span className="font-semibold">📍 </span>{job.location}</p>
+        <p className="mt-2 text-sm text-white"><span className="font-semibold">💰 </span>{job.salary}</p>
 
         <Link to="/intern-login" className="mt-4 pointer-coarse: inline-block text-sm font-medium text-indigo-600 hover:text-indigo-800">
           View Details

@@ -151,23 +151,10 @@ const Dashboard = () => {
         {/* Footer */}
         <footer className="border-t border-[#7EC9E8]/20 bg-white/60 backdrop-blur-sm mt-8">
           <div className="px-6 py-4">
-            <div className="flex flex-col md:flex-row items-center justify-between">
-              <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4 text-sm text-[#0E5C7E]">
+            <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0">
+              <div className="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-4 text-sm text-[#0E5C7E]">
                 <span>© {new Date().getFullYear()} Graphura India Private Limited. All rights reserved.</span>
-                <span className="hidden md:inline">•</span>
-                <span>Built with ❤️ for aspiring interns</span>
-              </div>
-              <div className="mt-4 md:mt-0 flex items-center space-x-4">
-                <a href="/privacy" className="text-xs text-[#0E5C7E]/70 hover:text-[#0A2E40] transition-colors">
-                  Privacy Policy
-                </a>
-                <a href="/terms" className="text-xs text-[#0E5C7E]/70 hover:text-[#0A2E40] transition-colors">
-                  Terms of Service
-                </a>
-                <a href="/contact" className="text-xs text-[#0E5C7E]/70 hover:text-[#0A2E40] transition-colors">
-                  Contact Support
-                </a>
-              </div>
+              </div>  
             </div>
           </div>
         </footer>
